@@ -7,6 +7,7 @@ class MyClass
     protected $name;
     protected $age;
     protected $skills;
+    protected $phone;
     
 
     public function setName($name)
@@ -36,7 +37,7 @@ class MyClass
         }
         return true;
     }
-
+ 
     public function setSkills(bool $param)
     {
         $this->skills = $param;
@@ -46,6 +47,7 @@ class MyClass
     {
         return $this->skills;
     }
+
     public function getFullData()
     {
         return [
@@ -54,4 +56,24 @@ class MyClass
             'special_skills' => $this->skills
         ];
     }
+
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+    }
+
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+    
+    public function checkPhoneLength()
+    {
+        if (strlen($this->phone) == 11 )
+        {
+            return true;
+        }
+        return false;
+    }
+
 }

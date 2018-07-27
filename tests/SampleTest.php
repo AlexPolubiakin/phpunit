@@ -1,25 +1,33 @@
 <?php
-
+/**
+ * Some test class
+ * 
+ * @category Tests
+ * @package  Some_Tests
+ * 
+ */
 class MyTestClass extends PHPUnit\Framework\TestCase
 {   
     /**
-     * @test проверка на одинаковые значения
+     * Short description
+     * 
+     * @test   элементарная проверка
+     * @return results of test
      */
-    public function testGetName()
-    {
-        $test1 = new \App\Classes\MyClass;
-        $test1->setName('Bob');
-        $test1->setAge(30);
-        $test1->setSkills(false);
-        $this->assertEquals($test1->getName(), 'Bob');    
-        $this->assertEquals($test1->getAge(), 30);  
-        $this->assertEquals($test1->getSkills(), false);  
-        
-    }
+public function testGetName()
+{
+    $test1 = new \App\Classes\MyClass;
+    $test1->setName('Bob');
+    $test1->setAge(30);
+    $test1->setSkills(false);
+    $this->assertEquals($test1->getName(), 'Bob');    
+    $this->assertEquals($test1->getAge(), 30);  
+    $this->assertEquals($test1->getSkills(), false);     
+}
     /**
-     * @test проверка ключей
+     * @test проверка заполненных данных
      */
-    public function checkProperty()
+    public function checkProperties()
     {
         $test1 = new \App\Classes\MyClass;
         $test1->setName('Bob');
@@ -32,7 +40,7 @@ class MyTestClass extends PHPUnit\Framework\TestCase
     }
   
     /**
-     * @test 
+     * @test проверка на умения
      */
      public function skillsTest()
      {
@@ -44,13 +52,26 @@ class MyTestClass extends PHPUnit\Framework\TestCase
         $this->assertFalse($test1->getSkills());
      }
     /**
-     * @test равен или не равен
+     * @test проверка на возраст
      */
-
-
-  
+    public function checkAge()
+    {
+        $test1 = new \App\Classes\MyClass;
+        $test1->setAge(25);
+        $this->assertTrue($test1->checkAge());
+    }
 
     /**
-     * @test проверка корректных типов данных имя фамилия возраст наличие водительских прав
+     * @test проверка телефона 
      */
-}
+
+     public function checkPhone()
+     {
+         $test1 = new \App\Classes\MyClass;
+         $test1->setPhone('71234567890');
+         $this->assertNotEmpty($test1->getPhone());
+         $this->assertTrue($test1->checkPhoneLength());
+     }
+    
+
+    } 
